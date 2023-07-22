@@ -1,62 +1,69 @@
-#nav-frame {
-    width: 100vw;
-    filter: drop-shadow(0px 0px 5px rgb(228, 228, 228));
-    background-color: white;
+/* Responsiveness */
+.navbar {
+    width: 100vw; 
+    filter: drop-shadow(0px 0px 5px rgb(228, 228, 228)); 
+    background-color: white; 
     font-weight: 300;
-    /* transition: height 0.2s ease-out; */
-    
-    height: fit-content;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    z-index: 1;
+    transition: top 0.2s ease-in-out;
 }
 
-#navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: inherit;
-    width: 100%;
+.navbar.desktop {
+    display: block;
+    padding: 15px 0px;
+    position: fixed;
+    top: 0;
 }
 
-#nav-ham {
+.navbar.mobile {
     display: none;
+    position: fixed;
+    top: 0;
 }
 
-#nav-links-wrap {
-    display: flex;
-    justify-content: flex-end;
-    align-content: center; 
-    column-gap: 20px;
-    flex-direction: row;
-}
-
-.nav-hide#nav-links-wrap, .nav-hide a {
-    display: inherit;
+.nav-buffer {
+    margin-bottom: 60px;
+    position: static;
+    background-color: none;
 }
 
 @media (max-width: 549px) {
-    #nav-frame {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    
-    #nav-ham {
-        display: block;
-    }
-    #nav-links-wrap, #navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    #nav-links-wrap {
-        row-gap: 7.5px;
-    }
-
-    #navbar {
-        row-gap: 15px;
-    }
-
-    .nav-hide#nav-links-wrap, .nav-hide a {
+    .navbar.desktop {
         display: none;
     }
+
+    .navbar.mobile {
+        display: block;
+    }
+
+    .nav-buffer {
+        margin-bottom: 50px;
+    }
+}
+
+/* Mobile */
+#nm-wrap div, #nm-wrap a {
+    flex-shrink: 0;
+}
+
+#nm-wrap.closed {
+    height: 50px;
+}
+
+#nm-wrap.opened {
+    height: 202.5px;
+}
+
+.nm-item {
+    display: flex; 
+    height: 35px;
+    width: 100%;
+    flex-direction: row; 
+    align-items: center;
+}
+
+.nm-img {
+    display: inherit; 
+    height: 25px; 
+    width: 25px;
 }

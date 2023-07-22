@@ -1,39 +1,100 @@
 
 <script>
     $(document).ready(function() {
-        $('#nav-ham').click(function() {
-            var navlinks = $('#nav-links-wrap')
-            if (navlinks.hasClass('nav-hide')) {
-                $('#nav-links-wrap').removeClass('nav-hide');
-                $('#nav-ham img').attr('src', '{{url_for('static', filename='images/ham_close.png')}}');                
+        // Hamburger mobile menu
+        $('#hamburger').click(function() {
+            var nm_wrap = $('#nm-wrap').hasClass('closed');
+            if (nm_wrap) {
+                $('#nm-wrap').addClass('opened');
+                $('#nm-wrap').removeClass('closed');
+                $('#hamburger img').attr('src', '{{url_for('static', filename='images/ham_opened.png')}}');                
             }
+            else if (!nm_wrap) {
+                $('#nm-wrap').addClass('closed');
+                $('#nm-wrap').removeClass('opened');
+                $('#hamburger img').attr('src', '{{url_for('static', filename='images/ham_closed.png')}}');                
+            }
+        });
+        // Scrolling hiding  
+        oldScroll = $(window).scrollTop();
+        $(window).on('scroll', () => {
+            var newScroll = $(window).scrollTop();
+            // Desktop
+            if ($(window).width() >= 550) {
+                // Scrolling down
+                if (newScroll > oldScroll) {
+                    $('.navbar.desktop').css('top', -60);
+                }
+                // Scrolling up
+                else if (newScroll < oldScroll) {
+                    $('.navbar.desktop').css('top', 0);
+                }
+            }
+            // Mobile
             else {
-                $('#nav-links-wrap').addClass('nav-hide');
-                $('#nav-ham img').attr('src', '{{url_for('static', filename='images/ham_open.png')}}');                
-            };
-        });          
+                if ($('#nm-wrap').hasClass('closed')) {
+                    // Scrolling down
+                    if (newScroll > oldScroll) {
+                        $('.navbar.mobile').css('top', -50);
+                    }
+                    // Scrolling up
+                    else if (newScroll < oldScroll) {
+                        $('.navbar.mobile').css('top', 0);
+                    }
+                }
+            }
+            oldScroll = $(window).scrollTop();
+        });        
     });
 </script>
 
-<div id='nav-frame'>
-    <div class='container'>
-        <div id='navbar'>
-            <!-- Logo and hamburger -->
-            <div style="display: flex; justify-content: space-between; width: 100%;">
-                <a style="height: 30px; width: 30px;" href="{{url_for('index')}}">
-                    <img class="u-full-width" src="{{url_for('static', filename='images/favicon.png')}}">
-                </a>
-                <div id='nav-ham' style="height: 30px; width: 30px;">
-                    <img class="u-full-width" src="{{url_for('static', filename='images/ham_open.png')}}">
-                </div>
-            </div>
-            <!-- Nav links -->
-            <div id='nav-links-wrap' class='nav-hide'>
+<!-- Buffer for nav space -->
+<div class="nav-buffer"></div>
+
+<!-- Desktop navbar (vw >= 550px) -->
+<div class="navbar desktop">
+    <div class="container">
+        <!-- Flexbox w/ logo and nav items -->
+        <div style="display: flex; justify-content: space-between; flex-direction: row; align-items: center; width: 100%;">
+            <!-- Logo -->
+            <a style="display: inherit; height: 30px; width: 30px;" href="{{url_for('index')}}">
+                <img class="u-full-width" src="{{url_for('static', filename='images/favicon.png')}}">
+            </a>
+            <!-- Nav items -->
+            <div style="display: flex; justify-content: flex-end; column-gap: 15px;">
                 <a href='#'>Home</a>
                 <a href='#'>Research</a>
                 <a href='#'>Design</a>
                 <a href='#'>About</a>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile navbar (vw < 550px) -->
+<!-- Height manually calculated to allow for open / close animation 
+    Nav logo + hamburger = 50px; Each entry = 35px; Bottom margin = 15px
+    For x4 entries, closed is 50px an opened is 202.5px
+-->
+<div class="navbar mobile">
+    <div class="container">
+        <!-- Nav Mobile wrapper flexbox / height adjusted for animated hamburger menu -->
+        <div id="nm-wrap" class="closed" style="display: flex; justify-content: flex-start; flex-direction: column; 
+        align-items: flex-start; width: 100%; overflow-y: hidden; transition: height 0.2s ease-out;">
+            <!-- Flexbox with logo and hamburger / height = 50px -->
+            <div style="display: flex; justify-content: space-between; flex-direction: row; align-items: center; width: 100%; height: 50px;">
+                <a class="nm-img" href="{{url_for('index')}}">
+                    <img class="u-full-width" src="{{url_for('static', filename='images/favicon.png')}}">
+                </a>
+                <div id="hamburger" class="nm-img">
+                    <img class="u-full-width" src="{{url_for('static', filename='images/ham_closed.png')}}">
+                </div>
+            </div>
+            <!-- Nav items -->
+            <a class="nm-item" href='#'>Home</a>
+            <a class="nm-item" href='#'>Research</a>
+            <a class="nm-item" href='#'>Design</a>
+            <a class="nm-item" href='#'>About</a>
         </div>
     </div>
 </div>
