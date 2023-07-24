@@ -1,17 +1,9 @@
-{% extends 'base.html' %}
-
-{% block title %}Landing Page{% endblock %}
-{% block styles %}{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}Landing Page{% endblock %} {% block
+styles %}{% endblock %} {% block content %}
 <p>Body</p>
 
-{% for i in range(6, 0, -1) %}    
-    <h{{i}}>Heading {{i}}</h{{i}}>
-{% endfor %}
-
-{% for i in range(50) %}
+{% for i in range(6, 0, -1) %}
+<h{{i}}>Heading {{i}}</h{{i}}>
+{% endfor %} {% for i in range(50) %}
 <p>{{i}}</p>
-{% endfor %}
-
-{% endblock %}
+{% endfor %} {% endblock %}
