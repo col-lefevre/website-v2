@@ -13,7 +13,7 @@
               $('#nm-wrap').removeClass('opened');
               $('#hamburger img').attr('src', '{{url_for('static', filename='images/ham_closed.png')}}');
           }
-      });
+      })
       // Scrolling hiding
       oldScroll = $(window).scrollTop();
       $(window).on('scroll', () => {
@@ -44,8 +44,8 @@
               }
           }
           oldScroll = $(window).scrollTop();
-      });
-  });
+      })
+  })
 </script>
 
 <!-- Buffer for nav space -->
