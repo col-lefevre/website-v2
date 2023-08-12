@@ -1,9 +1,14 @@
-{% extends 'base.html' %} {% block title %}Landing Page{% endblock %} {% block
+{% extends 'base.html' %} {% block title %}Colin LeFevre{% endblock %} {% block
 styles %}{% endblock %} {% block content %}
-<p>Body</p>
 
-{% for i in range(6, 0, -1) %}
-<h{{i}}>Heading {{i}}</h{{i}}>
-{% endfor %} {% for i in range(50) %}
-<p>{{i}}</p>
-{% endfor %} {% endblock %}
+<main class="container">
+	<hgroup>
+		<h1>Welcome to my site!</h1>
+		<h2>I am Colin LeFevre, and this is the subheading.</h2>
+	</hgroup>
+	{% for i in range(100) %}
+	<p>{{i}}</p>
+	{% endfor %}
+</main>
+
+{% endblock %}

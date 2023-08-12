@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Page info -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html>
+	<head>
+		<!-- Meta -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Personal Website" />
+		<meta name="author" content="Colin LeFevre" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="{{url_for('static', filename='images/favicon.ico')}}"
+		/>
+		<title>{% block title %}{% endblock %}</title>
 
-    <meta name="description" content="Personal Website" />
-    <meta name="author" content="Colin LeFevre" />
+		<!-- CSS -->
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='css/pico.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='css/base.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='css/navbar.css')}}"
+		/>
+		{% block styles %}{% endblock %}
 
-    <title>{% block title %}{% endblock %}</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{url_for('static', filename='images/logo.ico')}}"
-    />
+		<!-- Fonts & Icons-->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://kit.fontawesome.com/46acfdde6f.js"
+			crossorigin="anonymous"
+		></script>
 
-    <!-- CSS -->
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/normalize.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/skeleton.css')}}"
-    />
+		<!-- JQuery -->
+		<script src="{{url_for('static', filename='jquery/jquery-3.3.1.js')}}"></script>
+	</head>
+	<body>
+		<!-- Navbar -->
+		{% include 'navbar.html' %}
 
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/base.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/navbar.css')}}"
-    />
-    {% block styles %}{% endblock %}
-
-    <!-- JQuery -->
-    <script src="{{url_for('static', filename='jquery/jquery-3.3.1.js')}}"></script>
-  </head>
-  <body>
-    {% include 'navbar.html' %}
-    <div class="container">{% block content %}{% endblock %}</div>
-  </body>
+		<!-- Body -->
+		{% block content %}{% endblock %}
+	</body>
 </html>

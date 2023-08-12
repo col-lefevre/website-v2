@@ -1,70 +1,62 @@
-/* Responsiveness */
-.navbar {
-  width: 100vw;
-  filter: drop-shadow(0px 0px 5px rgb(228, 228, 228));
-  background-color: white;
-  font-weight: 300;
-  z-index: 1;
-  transition: top 0.2s ease-in-out;
+nav.desktop {
+	display: flex;
 }
 
-.navbar.desktop {
-  display: block;
-  padding: 15px 0px;
-  position: fixed;
-  top: 0;
+nav.mobile,
+#popout.mobile {
+	display: none;
 }
 
-.navbar.mobile {
-  display: none;
-  position: fixed;
-  top: 0;
+@media (max-width: 575px) {
+	nav.desktop {
+		display: none;
+	}
+
+	nav.mobile {
+		display: flex;
+	}
+
+	#popout.mobile {
+		display: block;
+	}
 }
 
-.nav-buffer {
-  margin-bottom: 60px;
-  position: static;
-  background-color: none;
+nav img,
+.offset .fake-img {
+	height: 30px;
+	width: auto;
 }
 
-@media (max-width: 549px) {
-  .navbar.desktop {
-    display: none;
-  }
+.container-fluid.desktop,
+nav.container.mobile {
+	background-color: var(--background-color);
+	border-bottom: 1px solid var(--muted-border-color);
 
-  .navbar.mobile {
-    display: block;
-  }
+	position: fixed;
+	top: 0;
 
-  .nav-buffer {
-    margin-bottom: 50px;
-  }
+	transition: top 0.3s ease-in-out;
 }
 
-/* Mobile */
-#nm-wrap div,
-#nm-wrap a {
-  flex-shrink: 0;
+#popout {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	background-color: var(--card-background-color);
+	box-shadow: var(--card-box-shadow);
+
+	height: 100vh;
+	width: 50vw;
+	display: block;
+
+	transition: left 0.3s ease-in-out;
 }
 
-#nm-wrap.closed {
-  height: 50px;
+#popout.hide {
+	left: -50vw; /* must match width */
 }
 
-#nm-wrap.opened {
-  height: 202.5px;
-}
-
-.nm-item {
-  display: flex;
-  height: 35px;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-}
-
-.nm-img {
-  display: inherit;
-  height: 25px;
-  width: 25px;
+.offset {
+	visibility: hidden;
 }
