@@ -1,43 +1,50 @@
 <script>
 	$(document).ready(function () {
-    // Open on #hamburger click
-    $("#hamburger").click(function(event){
-      if ($("#popout").hasClass('hide')) {
-        $("#popout").removeClass("hide");
-        event.stopPropagation();
-      }
-    })
-    // Close on external click
-    $(document).click(function(event){
-      // .closest function returns array with jQuery object of closest #popout
-      var popoutNotClicked = ($(event.target).closest("#popout").length == 0);
-      var popoutOpen = (!$("#popout").hasClass("hide"));
-      if (popoutNotClicked && popoutOpen) {
-        $("#popout").addClass("hide");
-      }
-    })
-    // Hide on scroll-down, show on scroll-up
-    var oldScroll = $(window).scrollTop();
-    $(window).on('scroll', function() {
-      var newScroll = $(window).scrollTop();
-      // Scrolling down - hide
-      if (newScroll > oldScroll) {
-        // Desktop
-        if ($(window).width() >= 550) {
-          $("#desktop-scroll").css('top', ($("#desktop-scroll").height()*(-1)));
-        }
-        // Mobile
-        else {
-          $("#mobile-scroll").css('top', ($("#mobile-scroll").height()*(-1)));
-        }
-      }
-      // Scrolling up - show
-      else {
-        $("#desktop-scroll, #mobile-scroll").css('top', 0);
-      }
-     oldScroll = newScroll;
-    })
-	})
+		// Open on #hamburger click
+		$("#hamburger").click(function (event) {
+			if ($("#popout").hasClass("hide")) {
+				$("#popout").removeClass("hide");
+				event.stopPropagation();
+			}
+		});
+		// Close on external click
+		$(document).click(function (event) {
+			// .closest function returns array with jQuery object of closest #popout
+			if (
+				!$(event.target).closest("#popout").length &&
+				!$("#popout").hasClass("hide")
+			) {
+				$("#popout").addClass("hide");
+			}
+		});
+		// Hide on scroll-down, show on scroll-up
+		var oldScroll = $(window).scrollTop();
+		$(window).on("scroll", function () {
+			var newScroll = $(window).scrollTop();
+			// Scrolling down - hide
+			if (newScroll > oldScroll) {
+				// Desktop
+				if ($(window).width() >= 550) {
+					$("#desktop-scroll").css(
+						"top",
+						$("#desktop-scroll").height() * -1
+					);
+				}
+				// Mobile
+				else {
+					$("#mobile-scroll").css(
+						"top",
+						$("#mobile-scroll").height() * -1
+					);
+				}
+			}
+			// Scrolling up - show
+			else {
+				$("#desktop-scroll, #mobile-scroll").css("top", 0);
+			}
+			oldScroll = newScroll;
+		});
+	});
 </script>
 <!-- Desktop -->
 <!-- 100vw for appropriate border position -->
@@ -51,10 +58,18 @@
 			</li>
 		</ul>
 		<ul>
-			<li><a href="#" class="secondary">About</a></li>
+			<li><a href="#" class="contrast">About</a></li>
 			<li><a href="#" class="secondary">Research</a></li>
 			<li><a href="#" class="secondary">Design</a></li>
-			<li><a href="#" class="secondary">Personal</a></li>
+			<li>
+				<a
+					href="{{url_for('static', filename='files/CV_LeFevre_F23.pdf')}}"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="secondary"
+					>CV</a
+				>
+			</li>
 		</ul>
 	</nav>
 </div>
@@ -62,47 +77,102 @@
 <nav class="container mobile" id="mobile-scroll">
 	<ul>
 		<li>
-        <img src="{{url_for('static', filename='images/favicon.png')}}"
-			/></a>
+			<img src="{{url_for('static', filename='images/favicon.png')}}" />
 		</li>
 	</ul>
 	<ul>
-		<li><a id="hamburger" href=# class="secondary">
-      <i class="fa-solid fa-bars fa-lg" style="color: var(--secondary);"></i
+		<li>
+			<a id="hamburger" href="#" class="secondary">
+				<i
+					class="fa-solid fa-bars fa-lg"
+					style="color: var(--secondary)"
+				></i
 			></a>
 		</li>
 	</ul>
 </nav>
 <!-- Mobile Popout -->
 <div id="popout" class="mobile hide">
-	<nav class="container-fluid">
-		<ul>
-			<li>
-				<img
-					src="{{url_for('static', filename='images/favicon.png')}}"
-				/>
-			</li>
-		</ul>
-	</nav>
-	<nav class="container-fluid">
+	<div class="container-fluid">
+		<nav>
+			<ul>
+				<li>
+					<img
+						src="{{url_for('static', filename='images/favicon.png')}}"
+					/>
+				</li>
+			</ul>
+		</nav>
 		<aside>
 			<nav>
 				<ul>
-					<li><a href="#" class="secondary">About</a></li>
+					<li><a href="#" class="contrast">About</a></li>
 					<li><a href="#" class="secondary">Research</a></li>
 					<li><a href="#" class="secondary">Design</a></li>
-					<li><a href="#" class="secondary">Personal</a></li>
+					<li>
+						<a
+							href="{{url_for('static', filename='files/CV_LeFevre_F23.pdf')}}"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="secondary"
+							>CV</a
+						>
+					</li>
 				</ul>
 			</nav>
 		</aside>
-	</nav>
+		<nav>
+			<ul>
+				<li>
+					<a href="mailto: clefevr@iu.edu" class="contrast"
+						><i class="fa-solid fa-envelope"></i
+					></a>
+				</li>
+				<li>
+					<a
+						href="https://linkedin.com/in/colin-lefevre/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contrast"
+						><i class="fa-brands fa-linkedin-in"></i
+					></a>
+				</li>
+				<li>
+					<a
+						href="https://twitter.com/col_lefevre"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contrast"
+						><i class="fa-brands fa-x-twitter"></i
+					></a>
+				</li>
+				<li>
+					<a
+						href="https://github.com/col-lefevre"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contrast"
+						><i class="fa-brands fa-github"></i
+					></a>
+				</li>
+				<li>
+					<a
+						href="https://orcid.org/0000-0001-6453-7251"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contrast"
+						><i class="fa-brands fa-orcid"></i>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </div>
 <!-- Device agnostic offset for fixed navbar -->
 <nav class="container offset">
-  <ul>
-    <li>
-      <div class="fake-img"></div>
-    </li>
-    <li><a href="#">fake text</a></li>
-  </ul>
+	<ul>
+		<li>
+			<div class="fake-img"></div>
+		</li>
+		<li><a href="#">fake text</a></li>
+	</ul>
 </nav>
