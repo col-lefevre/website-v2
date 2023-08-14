@@ -1,14 +1,77 @@
 {% extends 'base.html' %} {% block title %}Colin LeFevre{% endblock %} {% block
-styles %}{% endblock %} {% block content %}
+styles %}<link
+	rel="stylesheet"
+	href="{{url_for('static', filename='css/index.css')}}"
+/>{% endblock %} {% block content %}
 
-<main class="container">
-	<hgroup>
-		<h1>Welcome to my site!</h1>
-		<h2>I am Colin LeFevre, and this is the subheading.</h2>
-	</hgroup>
-	{% for i in range(100) %}
-	<p>{{i}}</p>
-	{% endfor %}
-</main>
+<header class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<img
+				class="pfp"
+				src="{{url_for('static', filename='images/headshot.jpg')}}"
+			/>
+			<p>
+				<small>Caption: A self-portrait in the Monroe Lake woods</small>
+			</p>
+		</div>
+		<div class="col-sm-1"></div>
+		<div class="col-sm-6">
+			<div>Hello! I am</div>
+			<hgroup>
+				<h2>Colin LeFevre</h2>
+				<h3>(he/him)</h3>
+			</hgroup>
+			<p>
+				I am a Human-Computer Interaction (HCI) student researcher at
+				<a href="https://prohealth.luddy.indiana.edu/"
+					>Proactive Health Informatics</a
+				>, and an Informatics undergraduate student at
+				<a href="https://luddy.indiana.edu/index.html">Luddy SICE</a>,
+				Indiana University Bloomington.
+			</p>
+			<p>
+				Prospective PhD applicant for HCI-centric programs which begin
+				Fall 2024.
+			</p>
+			<div class="contact">
+				<a href="mailto: clefevr@iu.edu" class="contrast"
+					><i class="fa-solid fa-envelope fa-lg"></i
+				></a>
 
+				<a
+					href="https://linkedin.com/in/colin-lefevre/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contrast"
+					><i class="fa-brands fa-linkedin-in fa-lg"></i
+				></a>
+
+				<a
+					href="https://twitter.com/col_lefevre"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contrast"
+					><i class="fa-brands fa-x-twitter fa-lg"></i
+				></a>
+
+				<a
+					href="https://github.com/col-lefevre"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contrast"
+					><i class="fa-brands fa-github fa-lg"></i
+				></a>
+
+				<a
+					href="https://orcid.org/0000-0001-6453-7251"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contrast"
+					><i class="fa-brands fa-orcid fa-lg"></i
+				></a>
+			</div>
+		</div>
+	</div>
+</header>
 {% endblock %}

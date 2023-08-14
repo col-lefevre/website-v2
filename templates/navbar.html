@@ -24,7 +24,7 @@
 			// Scrolling down - hide
 			if (newScroll > oldScroll) {
 				// Desktop
-				if ($(window).width() >= 550) {
+				if ($(window).width() > 575) {
 					$("#desktop-scroll").css(
 						"top",
 						$("#desktop-scroll").height() * -1
@@ -63,7 +63,7 @@
 			<li><a href="#" class="secondary">Design</a></li>
 			<li>
 				<a
-					href="{{url_for('static', filename='files/CV_LeFevre_F23.pdf')}}"
+					href="{{url_for('static', filename='files/CV.pdf')}}"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="secondary"
@@ -111,7 +111,7 @@
 					<li><a href="#" class="secondary">Design</a></li>
 					<li>
 						<a
-							href="{{url_for('static', filename='files/CV_LeFevre_F23.pdf')}}"
+							href="{{url_for('static', filename='files/CV.pdf')}}"
 							target="_blank"
 							rel="noopener noreferrer"
 							class="secondary"
@@ -121,50 +121,6 @@
 				</ul>
 			</nav>
 		</aside>
-		<nav>
-			<ul>
-				<li>
-					<a href="mailto: clefevr@iu.edu" class="contrast"
-						><i class="fa-solid fa-envelope"></i
-					></a>
-				</li>
-				<li>
-					<a
-						href="https://linkedin.com/in/colin-lefevre/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="contrast"
-						><i class="fa-brands fa-linkedin-in"></i
-					></a>
-				</li>
-				<li>
-					<a
-						href="https://twitter.com/col_lefevre"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="contrast"
-						><i class="fa-brands fa-x-twitter"></i
-					></a>
-				</li>
-				<li>
-					<a
-						href="https://github.com/col-lefevre"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="contrast"
-						><i class="fa-brands fa-github"></i
-					></a>
-				</li>
-				<li>
-					<a
-						href="https://orcid.org/0000-0001-6453-7251"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="contrast"
-						><i class="fa-brands fa-orcid"></i>
-				</li>
-			</ul>
-		</nav>
 	</div>
 </div>
 <!-- Device agnostic offset for fixed navbar -->

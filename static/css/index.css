@@ -1,0 +1,24 @@
+.pfp {
+	width: fit-content;
+	height: auto;
+
+	margin-bottom: 1rem;
+	border-radius: 15px;
+}
+
+small {
+	color: var(--muted-color);
+}
+
+@media (max-width: 575px) {
+	.pfp {
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+}
+
+.contact {
+	display: flex;
+	gap: 1rem;
+}
