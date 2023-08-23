@@ -6,14 +6,19 @@ styles %}<link
 
 <header class="container">
 	<div class="row">
-		<div class="col-sm-3">
-			<img
-				class="pfp"
-				src="{{url_for('static', filename='images/headshot.jpg')}}"
-			/>
-			<p>
-				<small>Caption: A self-portrait in the Monroe Lake woods</small>
-			</p>
+		<div class="col-sm-4">
+			<div class="pfp-container">
+				<img
+					class="pfp"
+					src="{{url_for('static', filename='images/headshot_square.jpg')}}"
+				/>
+				<p>
+					<small
+						>Caption: An aspiring researcher's amateur self-portrait
+						in a local forest</small
+					>
+				</p>
+			</div>
 		</div>
 		<div class="col-sm-1"></div>
 		<div class="col-sm-6">

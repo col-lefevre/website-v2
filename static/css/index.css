@@ -1,9 +1,12 @@
-.pfp {
-	width: fit-content;
-	height: auto;
+.pfp-container {
+	width: 100%;
+}
 
+.pfp {
+	width: 100%;
+	height: auto;
 	margin-bottom: 1rem;
-	border-radius: 15px;
+	box-shadow: var(--card-box-shadow);
 }
 
 small {
@@ -11,10 +14,9 @@ small {
 }
 
 @media (max-width: 575px) {
-	.pfp {
-		width: 80%;
-		margin-left: 10%;
-		margin-right: 10%;
+	.pfp-container {
+		padding-left: 15%;
+		padding-right: 15%;
 	}
 }
 
