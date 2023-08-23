@@ -7,4 +7,4 @@ My personal website. Made by me, using many creations of others:
 - [Bootstrap Grid](https://getbootstrap.com/)
   - I may not like full Bootstrap, but their grid is pretty handy
 - [Google Fonts](https://fonts.google.com/) and [Font Awesome](https://fontawesome.com/)
-  - Manually downloading fonts and icons should have been in Dante's inferno
+  - Manually downloading fonts and icons should have been in Dante's Inferno
