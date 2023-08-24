@@ -1,0 +1,32 @@
+<ul>
+	<li>
+		<a
+			href="{{url_for('index')}}"
+			class="{{'contrast' if (page_name == 'index') else 'secondary'}}"
+			>About</a
+		>
+	</li>
+	<li>
+		<a
+			href="{{url_for('research')}}"
+			class="{{'contrast' if (page_name == 'research') else 'secondary'}}"
+			>Research</a
+		>
+	</li>
+	<li>
+		<a
+			href="{{url_for('design')}}"
+			class="{{'contrast' if (page_name == 'design') else 'secondary'}}"
+			>Design</a
+		>
+	</li>
+	<li>
+		<a
+			href="{{url_for('static', filename='files/CV.pdf')}}"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="secondary"
+			>CV</a
+		>
+	</li>
+</ul>

@@ -25,17 +25,11 @@
 			if (newScroll > oldScroll) {
 				// Desktop
 				if ($(window).width() > 575) {
-					$("#desktop-scroll").css(
-						"top",
-						$("#desktop-scroll").height() * -1
-					);
+					$("#desktop-scroll").css("top", $("#desktop-scroll").height() * -1);
 				}
 				// Mobile
 				else {
-					$("#mobile-scroll").css(
-						"top",
-						$("#mobile-scroll").height() * -1
-					);
+					$("#mobile-scroll").css("top", $("#mobile-scroll").height() * -1);
 				}
 			}
 			// Scrolling up - show
@@ -52,25 +46,10 @@
 	<nav class="container desktop">
 		<ul>
 			<li>
-				<img
-					src="{{url_for('static', filename='images/favicon.png')}}"
-				/>
+				<img src="{{url_for('static', filename='images/favicon.png')}}" />
 			</li>
 		</ul>
-		<ul>
-			<li><a href="#" class="contrast">About</a></li>
-			<li><a href="#" class="secondary">Research</a></li>
-			<li><a href="#" class="secondary">Design</a></li>
-			<li>
-				<a
-					href="{{url_for('static', filename='files/CV.pdf')}}"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="secondary"
-					>CV</a
-				>
-			</li>
-		</ul>
+		{% include 'nav_links.html' %}
 	</nav>
 </div>
 <!-- Mobile -->
@@ -83,10 +62,7 @@
 	<ul>
 		<li>
 			<a id="hamburger" href="#" class="secondary">
-				<i
-					class="fa-solid fa-bars fa-lg"
-					style="color: var(--secondary)"
-				></i
+				<i class="fa-solid fa-bars fa-lg" style="color: var(--secondary)"></i
 			></a>
 		</li>
 	</ul>
@@ -97,29 +73,12 @@
 		<nav>
 			<ul>
 				<li>
-					<img
-						src="{{url_for('static', filename='images/favicon.png')}}"
-					/>
+					<img src="{{url_for('static', filename='images/favicon.png')}}" />
 				</li>
 			</ul>
 		</nav>
 		<aside>
-			<nav>
-				<ul>
-					<li><a href="#" class="contrast">About</a></li>
-					<li><a href="#" class="secondary">Research</a></li>
-					<li><a href="#" class="secondary">Design</a></li>
-					<li>
-						<a
-							href="{{url_for('static', filename='files/CV.pdf')}}"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="secondary"
-							>CV</a
-						>
-					</li>
-				</ul>
-			</nav>
+			<nav>{% include 'nav_links.html' %}</nav>
 		</aside>
 	</div>
 </div>
