@@ -1,0 +1,24 @@
+.date {
+    direction: rtl;
+    width: 100%;
+    display: inline-block;
+    
+}
+
+.themes {
+    display: flex;
+    gap: 1rem;
+}
+
+.themes small, .themes button {
+    width: fit-content;
+    display: inline-block;
+    color: var(--primary-inverse);
+
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+
+    padding: .6rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing);
+}
