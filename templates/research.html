@@ -5,34 +5,43 @@ styles %}<link
 />{% endblock %} {% block content %}
 
 <header class="container">
-	<!-- Research interests -->
+	<div class="row">
+		<div class="col-sm-6">
+			<hgroup>
+				<h1>Research</h1>
+				<h2>
+					I currently conduct research at the intersection of HCI, health, and
+					political marginalization. But, arriving at that intersection was a
+					process. Here, you can learn a bit more about my evolution as a
+					qualitative researcher of technology, through my various undergraduate
+					research projects.
+				</h2>
+			</hgroup>
+		</div>
+	</div>
 </header>
 
 <main class="container">
 	<div class="row">
-		<div class="col-sm-7">
+		<div class="col-sm-6">
 			<hgroup>
 				<h3>Research Project Title</h3>
 				<h4>Start Date - End Date</h4>
 			</hgroup>
-			<!-- 
-			<div class="themes">
-				<small>Theme1</small>
-				<small>Theme2</small>
-				<small>Theme3</small>
-			</div>
-			-->
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio sint
 				deserunt incidunt veniam! Commodi rerum sed ratione natus? Iusto
 				aspernatur quis corrupti eligendi, laudantium tempora quod voluptates
 				facere eius nesciunt!
 			</p>
-			</details>
 			<a href="#" role="button" class="secondary">Paper Link</a>
 		</div>
+		<div class="col-sm-1"></div>
 		<div class="col-sm-5">
-			<!-- Project images -->
+			<img
+				class="project-img"
+				src="{{url_for('static', filename='images/placeholder.png')}}"
+			/>
 		</div>
 	</div>
 </main>

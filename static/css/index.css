@@ -7,6 +7,7 @@
 	height: auto;
 	margin-bottom: 1rem;
 	box-shadow: var(--card-box-shadow);
+	border-radius: 0.25rem;
 }
 
 small {
