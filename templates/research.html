@@ -4,48 +4,67 @@ styles %}<link
 	href="{{url_for('static', filename='css/research.css')}}"
 />{% endblock %} {% block content %}
 
-<!-- 
 <header class="container">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-lg-8">
 			<hgroup>
-				<h1>Research</h1>
-				<h2>
-					I currently conduct research at the intersection of HCI, health, and
-					political marginalization. But, arriving at that intersection was a
-					process. Here, you can learn a bit more about my evolution as a
-					qualitative researcher of technology, through my various undergraduate
-					research projects.
-				</h2>
+				<h1>Research</h2>
+				<h3>My completed and ongoing research projects</h3>
 			</hgroup>
 		</div>
+	</div>
+	<div class="row">
+		<img class="cover-img" src="{{url_for('static', filename='images/research.png')}}" alt="A somewhat uncanny AI-generated image of a qualitative researcher's tool">
+		<small>Caption: A somewhat uncanny AI-generated image of a qualitative researcher's tools</small>
 	</div>
 </header>
--->
 
 <main class="container">
-	<div class="row">
-		<div class="col-sm-6">
-			<hgroup>
-				<h3>Technology Within Pro-Choice Abortion Activism</h3>
-				<h4>Fall 2022 - Present</h4>
-			</hgroup>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio sint
-				deserunt incidunt veniam! Commodi rerum sed ratione natus? Iusto
-				aspernatur quis corrupti eligendi, laudantium tempora quod voluptates
-				facere eius nesciunt!
-			</p>
-			<a href="#" role="button" class="secondary">Paper Link</a>
+	{% for project in project_data %}
+	<div>
+		<div class="row">
+			<div class="col-lg-8">
+				<h3>{{project["title"]}}</h3>
+			</div>
 		</div>
-		<div class="col-sm-1"></div>
-		<div class="col-sm-5">
-			<img
-				class="project-img"
-				src="{{url_for('static', filename='images/placeholder.png')}}"
-			/>
+		<div class="row">
+			<div class="col-lg-5">
+				<article>
+					<ul>
+						{% for detail in project['details'] %}
+						<li {% if loop.index == (project['details']|length) %} 
+						style="margin-bottom: 0px;" 
+						{% endif %}>
+						<b>{{detail['title']}}:</b> {{detail['body']}}
+						</li>
+						{% endfor %}
+					</ul>
+				</article>
+			</div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-6">
+				{% for text in project["text"] %}
+				<p>{{text}}</p>
+				{% endfor %}
+				<div class="button-flex">
+					{% for button in project["buttons"] %}
+					<!-- Cant figure out url for for here-->
+					<a 
+						href="{{button['link']}}"
+						role="button"
+						class="secondary"
+						target="_blank"
+						rel="noopener noreferrer"
+						>{{button['title']}}</a
+					>
+					{% endfor %}
+				</div>
+			</div>
 		</div>
 	</div>
+	{% if loop.index != project_data|length %}
+	<div class="project-barrier"></div>
+	{% endif %}
+	{% endfor %}
 </main>
-
 {% endblock %}

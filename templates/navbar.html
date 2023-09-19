@@ -4,7 +4,9 @@
 	<nav class="container desktop">
 		<ul>
 			<li>
-				<img src="{{url_for('static', filename='images/favicon.png')}}" />
+				<a href="{{url_for('index')}}"
+					><img src="{{url_for('static', filename='images/favicon.png')}}"
+				/></a>
 			</li>
 		</ul>
 		{% include 'nav_links.html' %}
@@ -14,7 +16,9 @@
 <nav class="container mobile" id="mobile-scroll">
 	<ul>
 		<li>
-			<img src="{{url_for('static', filename='images/favicon.png')}}" />
+			<a href="{{url_for('index')}}"
+				><img src="{{url_for('static', filename='images/favicon.png')}}"
+			/></a>
 		</li>
 	</ul>
 	<ul>

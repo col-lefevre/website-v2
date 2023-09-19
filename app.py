@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for
+import dataParse
 
 app = Flask(__name__)
 
@@ -8,7 +9,7 @@ def index():
 
 @app.route('/research.html')
 def research():
-    return render_template("research.html", page_name="research")
+    return render_template("research.html", page_name="research", project_data=dataParse.researchDataParse())
 
 @app.route('/design.html')
 def design():
