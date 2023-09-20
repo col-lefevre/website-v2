@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block title %}Colin LeFevre - Research{% endblock %} {% block
+styles %}<link
+	rel="stylesheet"
+	href="{{url_for('static', filename='css/research_project.css')}}"
+/>{% endblock %} {% block content %}
+
+<main class="container">
+	<div>
+		<div class="row">
+			<div class="col-lg-8">
+				<h3>{{project["title"]}}</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-5">
+				<article>
+					<ul>
+						{% for detail in project['details'] %}
+						<li {% if loop.index == (project['details']|length) %} 
+						style="margin-bottom: 0px;" 
+						{% endif %}>
+						<b>{{detail['title']}}:</b> {{detail['body']}}
+						</li>
+						{% endfor %}
+					</ul>
+				</article>
+			</div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-6">
+				{% for text in project["text"] %}
+				<p>{{text}}</p>
+				{% endfor %}
+				<div class="button-flex">
+					{% for button in project["buttons"] %}
+					<!-- Cant figure out url for for here-->
+					<a 
+						href="{{button['link']}}"
+						role="button"
+						class="secondary"
+						target="_blank"
+						rel="noopener noreferrer"
+						>{{button['title']}}</a
+					>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{% endblock %}

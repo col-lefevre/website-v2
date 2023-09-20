@@ -1,5 +1,11 @@
 import csv
 
+def getProject(idNum):
+    projects = researchDataParse()
+    for project in projects:
+        if int(project["id"]) == int(idNum):
+            return project
+
 def researchDataParse():
     dataList = []
     
