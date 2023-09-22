@@ -14,10 +14,35 @@ small {
 	color: var(--muted-color);
 }
 
+.pfp.desktop {
+	display: block;
+}
+
+.pfp.mobile {
+	display: none;
+}
+
 @media (max-width: 991px) {
+	.pfp.desktop {
+		display: none;
+	}
+	
+	.pfp.mobile {
+		display: block;
+	}
+}
+
+@media (max-width: 991px) and (min-width: 576px) {
 	.pfp-container {
-		padding-left: 15%;
-		padding-right: 15%;
+		padding-left: 30%;
+		padding-right: 30%;
+	}
+}
+
+@media (max-width: 575px) {
+	.pfp-container {
+		padding-left: 20%;
+		padding-right: 20%;
 	}
 }
 
