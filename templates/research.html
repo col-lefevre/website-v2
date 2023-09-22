@@ -15,8 +15,8 @@ styles %}<link
 		<img-flexbox>
 			{% for project in projects %}
 			<div>
-				<a href="{{'/' + project['stub'] + '.html'}}"
-					><img src="{{'/static/images/' + project['stub'] + '.png'}}"
+				<a href="{{'./' + project['stub'] + '.html'}}"
+					><img src="{{'./static/images/' + project['stub'] + '.png'}}"
 				/></a>
 				<small>{{project["blurb"]}}</small>
 			</div>

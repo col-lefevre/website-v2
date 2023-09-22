@@ -1,36 +1,17 @@
 {
-    "hosting": {
-      "public": "public",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-            "source": "/abortion_activism.html",
-            "destination": "/research/abortion_activism",
-            "type": 301
-        },
-        {
-            "source": "/reflection_grief.html",
-            "destination": "/research/reflection_grief",
-            "type": 301
-        },
-        {
-            "source": "/cooking_experiences.html",
-            "destination": "/research/cooking_experiences",
-            "type": 301
-        },
-        {
-          "source": "/research.html",
-          "destination": "/research",
-          "type": 301
-        },
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    }
+  "hosting": {
+    "public": "public", // Replace with the path to your HTML files and assets
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true, // Set to true to preserve clean URLs
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
+}
