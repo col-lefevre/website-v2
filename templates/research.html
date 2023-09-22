@@ -13,26 +13,14 @@ styles %}<link
 	</div>
 	<div class="row">
 		<img-flexbox>
+			{% for project in projects %}
 			<div>
-				<a href="/abortion_activism.html"
-					><img
-						src="{{url_for('static', filename='images/activism_styles.png')}}"
+				<a href="{{'/' + project['stub'] + '.html'}}"
+					><img src="{{'/static/images/' + project['stub'] + '.png'}}"
 				/></a>
-				<small>Technology & Abortion Activism</small>
+				<small>{{project["blurb"]}}</small>
 			</div>
-			<div>
-				<a href="/reflection_bereavement.html"
-					><img src="{{url_for('static', filename='images/gfg.png')}}"
-				/></a>
-				<small>Reflective Technology & Bereavement</small>
-			</div>
-			<div>
-				<a href="/cooking_experiences.html"
-					><img
-						src="{{url_for('static', filename='images/cooking_stories.png')}}"
-				/></a>
-				<small>Digitally Shared Cooking Experiences</small>
-			</div>
+			{% endfor %}
 		</img-flexbox>
 	</div>
 </main>

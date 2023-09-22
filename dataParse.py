@@ -1,14 +1,22 @@
 import csv
 
-def getProject(idNum):
+def getProjectData(idNum):
     projects = researchDataParse()
     for project in projects:
         if int(project["id"]) == int(idNum):
             return project
+        
+def getProjectSummaries():
+    projectList = []
+    projects = researchDataParse()
+    for project in projects:
+        projectList.append({"id": project["id"], "stub": project["stub"], "blurb": project["blurb"]})
+
+    return projectList
 
 def researchDataParse():
     dataList = []
-    
+
     # Main.csv
     with open("pyData/research/main.csv", mode="r", newline="") as csvFile:
         csvReader = csv.DictReader(csvFile)
@@ -46,3 +54,5 @@ def researchDataParse():
                 dataList[dataListId]["details"].append({"title": row["title"], "body": row["body"] })
 
     return dataList
+
+# print(getProjectSummaries())
