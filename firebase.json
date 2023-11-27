@@ -1,17 +1,13 @@
 {
-  "hosting": {
-    "public": "public", // Replace with the path to your HTML files and assets
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "cleanUrls": true, // Set to true to preserve clean URLs
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+    "hosting": {
+        "public": "build", // Replace with the path to your HTML files and assets
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "cleanUrls": true, // Set to true to preserve clean URLs
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
 }
